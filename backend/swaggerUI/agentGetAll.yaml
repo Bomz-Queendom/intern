@@ -1,0 +1,11 @@
+/agent/getAll:
+  get:
+    description: get all agent
+    tags: [Agent]
+    responses:
+      200:
+        description: success
+      404:
+        description: villager not found.
+      400:
+        description: Bad Request

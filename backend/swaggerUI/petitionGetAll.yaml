@@ -1,0 +1,11 @@
+/petition/getAll:
+  get:
+    description: Get All Petition
+    tags: [Petition]
+    responses:
+      200:
+        description: success
+      404:
+        description: The data to be deleted does not exist in the database.
+      400:
+        description: Bad Request

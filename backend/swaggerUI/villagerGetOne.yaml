@@ -1,0 +1,15 @@
+/villager/getOne/{id}:
+  get:
+    description: get One villagers by villager id
+    tags: [Villager]
+    parameters:
+      - in: path
+        name: id
+        description: villager id
+    responses:
+      200:
+        description: success
+      404:
+        description: villager not found.
+      400:
+        description: Bad Request

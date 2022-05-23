@@ -1,0 +1,34 @@
+/agent/update/{id}:
+  patch:
+    description: create agent.
+    tags: [Agent]
+    parameters:
+      - in: path
+        name: id
+        description: agent id
+      - in: formData
+        name: firstName
+        type: string
+      - in: formData
+        name: lastName
+        type: string
+      - in: formData
+        name: agentPin
+        type: string
+      - in: formData
+        name: email
+        type: string
+      - in: formData
+        name: password
+        type: string
+      - in: formData
+        name: jobTitle
+        type: string
+      - in: formData
+        name: phoneNum
+        type: string
+    responses:
+      200:
+        description: success
+      400:
+        description: Bad Request

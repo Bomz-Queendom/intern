@@ -1,0 +1,66 @@
+/villager/update/{id}:
+  patch:
+    description: create villager.
+    tags: [Villager]
+    parameters:
+      - in: path
+        name: id
+        description: the villager to update.
+      - in: formData
+        name: firstName
+        description: villager first name.
+      - in: formData
+        name: lastName
+        description: villager last name.
+      - in: formData
+        name: age
+        description: villager age.
+      - in: formData
+        name: gender
+        description: villager gender.
+      - in: formData
+        name: religion
+        description: villager religion.
+      - in: formData
+        name: ethnicity
+        description: villager ethnicity.
+      - in: formData
+        name: nationality
+        description: villager nationalty.
+      - in: formData
+        name: phoneNum
+        description: villager phone number.
+      - in: formData
+        name: dateOfBirth
+        description: villager date of birth.
+      - in: formData
+        name: idCard
+        description: villager id cart.
+      - in: formData
+        name: email
+        description: villager email.
+      - in: formData
+        name: password
+        description: villager password.
+      - in: formData
+        name: houseNumber
+        description: villager houseNumber.
+      - in: formData
+        name: subDistrict
+        description: villager sub district.
+      - in: formData
+        name: district
+        description: villager district.
+      - in: formData
+        name: province
+        description: villager province.
+      - in: formData
+        name: postalCode
+        description: villager postalCode.
+    responses:
+      200:
+        description: success
+      404:
+        description: The data to be deleted does not exist in the database.
+      400:
+        description: Bad Request

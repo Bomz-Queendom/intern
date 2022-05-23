@@ -1,0 +1,15 @@
+/villager/delete/{id}:
+  delete:
+    description: delete One villagers by villager id
+    tags: [Villager]
+    parameters:
+      - in: path
+        name: id
+        description: villager id
+    responses:
+      200:
+        description: success
+      404:
+        description: The data to be deleted does not exist in the database.
+      400:
+        description: Bad Request

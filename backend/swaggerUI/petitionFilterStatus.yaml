@@ -1,0 +1,15 @@
+/petition/filterByStatus:
+  get:
+    description: filter petition by status.
+    tags: [Petition]
+    parameters:
+      - in: query
+        name: status
+        schema:
+          type: string
+        description: input petition status.
+    responses:
+      200:
+        description: success
+      400:
+        description: Bad Request

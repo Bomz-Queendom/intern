@@ -1,0 +1,33 @@
+/auth/agentSignUp:
+  post:
+    description: agent sign up.
+    tags: [Authentication]
+    parameters:
+      - in: formData
+        name: firstName
+        description: agent first name.
+      - in: formData
+        name: lastName
+        description: agent first name.
+      - in: formData
+        name: agentPin
+        description: agent pin.
+      - in: formData
+        name: email
+        description: agent email.
+      - in: formData
+        name: password
+        description: agent password.
+      - in: formData
+        name: jobTitle
+        description: agent job title.
+      - in: formData
+        name: phoneNum
+        description: agent phone number.
+    responses:
+      200:
+        description: ok
+      403:
+        description: Forbidden
+      400:
+        description: Bad Request

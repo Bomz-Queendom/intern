@@ -1,0 +1,17 @@
+/auth/myProfile:
+  get:
+    description: user proflie.
+    tags: [Authentication]
+    parameters:
+      - in: header
+        name: x-auth-token
+        schema:
+          type: string
+        description: token login
+    responses:
+      200:
+        description: ok
+      404:
+        description: not found
+      400:
+        description: Bad Request

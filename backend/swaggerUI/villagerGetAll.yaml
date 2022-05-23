@@ -1,0 +1,11 @@
+/villager/getAll:
+  get:
+    description: get all villagers
+    tags: [Villager]
+    responses:
+      200:
+        description: success
+      404:
+        description: villager not found.
+      400:
+        description: Bad Request

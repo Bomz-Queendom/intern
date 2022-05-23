@@ -1,0 +1,15 @@
+/agent/getOne/{id}:
+  get:
+    description: get One Agent by Agent id
+    tags: [Agent]
+    parameters:
+      - in: path
+        name: id
+        description: Agent id
+    responses:
+      200:
+        description: success
+      404:
+        description: Agent not found.
+      400:
+        description: Bad Request

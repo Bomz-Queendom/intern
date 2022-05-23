@@ -1,0 +1,13 @@
+/petition/getOne/{id}:
+  get:
+    description: get one petition by id.
+    tags: [Petition]
+    parameters:
+      - in: path
+        name: id
+        description: input petition id.
+    responses:
+      200:
+        description: success
+      400:
+        description: Bad Request

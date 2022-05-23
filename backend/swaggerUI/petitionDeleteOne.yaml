@@ -1,0 +1,15 @@
+/petition/delete/{id}:
+  delete:
+    description: Delete One Petition by petition id.
+    tags: [Petition]
+    parameters:
+      - in: path
+        name: id
+        description: petition id
+    responses:
+      200:
+        description: success
+      404:
+        description: The data to be deleted does not exist in the database.
+      400:
+        description: Bad Request

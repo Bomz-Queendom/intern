@@ -1,0 +1,36 @@
+/petition/create/{id}:
+  post:
+    description: create petition by villager id.
+    tags: [Petition]
+    consumes:
+      - multipart/form-data
+      - application/json
+    parameters:
+      - in: path
+        name: id
+        description: villager id
+      - in: formData
+        name: images
+        type: file
+        description: petition images
+      - in: formData
+        name: petitionType
+        type: string
+        description: the petitionType to create.
+      - in: formData
+        name: problemDetail
+        type: string
+        description: the problemDetail to create.
+      - in: formData
+        name: needCorrective
+        type: string
+        description: the needCorrective to create.
+      - in: formData
+        name: status
+        type: string
+        description: the status to create.
+    responses:
+      200:
+        description: success
+      400:
+        description: Bad Request

@@ -1,0 +1,19 @@
+/auth/reset-password:
+  patch:
+    description: reset password.
+    tags: [Authentication]
+    parameters:
+      - in: formData
+        name: email
+        type: string
+      - in: formData
+        name: oldPass
+        type: string
+      - in: formData
+        name: newPass
+        type: string
+    responses:
+      200:
+        description: success
+      400:
+        description: Bad Request
