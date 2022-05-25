@@ -12,7 +12,7 @@ import View from "../components/petition/view.vue";
 const routes = [
   {
     path: "/",
-    rediract: "/dashboard",
+    // rediract: "/dashboard",
     component: DashboardComponent,
     meta: { requiresAuth: true },
     children: [

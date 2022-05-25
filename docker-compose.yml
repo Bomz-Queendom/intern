@@ -42,14 +42,29 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://admin:123456@mongo:27017/
 
   frontend:
-    image: frontend
+    image: front
     build:
       context: frontend
       dockerfile: ./Dockerfile
     # environment:
     #   NODE_ENV: production
+    restart: always
+    # volumes:
+    #   - ./front:/usr/src/app
     ports:
-      - 8008:8008
+      - 8000:80
 
 volumes:
   data:
+
+
+
+  # frontend:
+  #   image: frontend
+  #   build:
+  #     context: frontend
+  #     dockerfile: ./Dockerfile
+  #   # environment:
+  #   #   NODE_ENV: production
+  #   ports:
+  #     - 8008:8008

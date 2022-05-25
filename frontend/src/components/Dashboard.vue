@@ -19,8 +19,8 @@
                   :to="item.to"
                   active-class="bg-gray-900 text-white"
                   :class="[
-                    this.$route.name === item.to.name
-                      ? ''
+                    item.current === false
+                      ? 'bg-gray-900 text-white'
                       : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'px-3 py-2 rounded-md text-sm font-medium',
                   ]"
@@ -110,10 +110,10 @@
             :to="item.to"
             active-class="bg-gray-900 text-white"
             :class="[
-              this.$route.name === item.to.name
-                ? ''
+              item.current === false
+                ? 'bg-gray-900 text-white'
                 : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-              'block px-3 py-2 rounded-md text-base font-medium',
+              'px-3 py-2 rounded-md text-sm font-medium',
             ]"
             >{{ item.name }}</router-link
           >
@@ -121,7 +121,11 @@
         <div class="pt-4 pb-3 border-t border-gray-700">
           <div class="flex items-center px-5">
             <div class="flex-shrink-0">
-              <img class="h-10 w-10 rounded-full" src="../../public/kisspng-portable-network-graphics-computer-icons-scalable-font-user-svg-png-icon-free-download-415641-5c46e5fbb8ce26.323350571548150267757.png" alt="" />
+              <img
+                class="h-10 w-10 rounded-full"
+                src="../../public/kisspng-portable-network-graphics-computer-icons-scalable-font-user-svg-png-icon-free-download-415641-5c46e5fbb8ce26.323350571548150267757.png"
+                alt=""
+              />
             </div>
             <div class="ml-3">
               <div class="text-base font-medium leading-none text-white">
@@ -151,7 +155,9 @@
       </DisclosurePanel>
     </Disclosure>
 
-    <router-view></router-view>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -173,8 +179,8 @@ import { useRouter } from "vue-router";
 const store = useStore();
 const user = computed(() => store.state.user.data);
 const navigation = [
-  { name: "All Petitions", to: { name: "Dashboard" } },
-  { name: "Create", to: { name: "Create" } },
+  { name: "All Petitions", to: { name: "Dashboard" }, current: true },
+  { name: "Create", to: { name: "Create" }, current: true },
 ];
 
 const router = useRouter();
