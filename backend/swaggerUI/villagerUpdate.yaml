@@ -40,9 +40,6 @@
         name: email
         description: villager email.
       - in: formData
-        name: password
-        description: villager password.
-      - in: formData
         name: houseNumber
         description: villager houseNumber.
       - in: formData
