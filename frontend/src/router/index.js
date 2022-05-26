@@ -8,6 +8,8 @@ import store from "../store";
 import AuthComponent from "../components/auth/AuthComponent.vue";
 import Profile from "../components/villager/Profile.vue";
 import View from "../components/petition/view.vue";
+import EditProfile from "../components/villager/EditProfile.vue";
+import ResetPass from "../components/auth/ResetPass.vue";
 
 const routes = [
   {
@@ -28,8 +30,13 @@ const routes = [
       },
       {
         path: "/myProfile",
-        name: "Proflie",
+        name: "Profile",
         component: Profile,
+      },
+      {
+        path: "/editProfile",
+        name: "EditProfile",
+        component: EditProfile,
       },
       {
         path: "/view/:id",
@@ -54,6 +61,11 @@ const routes = [
         path: "/register",
         name: "Register",
         component: Register,
+      },
+      {
+        path: "/reset",
+        name: "ResetPass",
+        component: ResetPass,
       },
     ],
   },

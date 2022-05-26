@@ -15,7 +15,7 @@ exports.create = async (req, res) => {
       let imagesInput = req.files.images;
       let filesNames = [];
       let imageName = `${Date.now()}-${imagesInput.name}`;
-      filesNames.push(imageName);
+      filesNames.push(`http://localhost:3000/petition/images/${imageName}`);
       imagesInput.mv(`./public/images/petitionImage/${imageName}`);
       dataInput = Object.assign(dataInput, { images: filesNames });
     }

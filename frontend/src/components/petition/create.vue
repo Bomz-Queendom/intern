@@ -59,7 +59,6 @@
             >
             <input
               type="file"
-              
               @change="handleFileUpload"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
@@ -93,18 +92,25 @@ const petition = {
   images: null,
 };
 
-const file = reactive({ image: null });
+let file = null;
 
 const handleFileUpload = (ev) => {
-  file.image = ev.target.files[0];
+  file = ev.target.files[0];
 };
 
 const Create = (ev) => {
   ev.preventDefault();
-  const form = new FormData();
-  form.append("image", file.image, file.image.name);
-  petition.images = form;
-  axiosClient.post(`/petition/create/${store.state.user.data}`, petition);
+  const fd = new FormData();
+  fd.append("petitionType", petition.petitionType);
+  fd.append("problemDetail", petition.problemDetail);
+  fd.append("needCorrective", petition.needCorrective);
+  fd.append("status", petition.status);
+  fd.append("images", file);
+  axiosClient.post(`/petition/create/${store.state.user.data}`, fd, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   alert("Created Success.");
   router.push({ name: "Dashboard" });
 };

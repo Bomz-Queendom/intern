@@ -48,7 +48,7 @@
                     <span class="sr-only">Open user menu</span>
                     <img
                       class="h-8 w-8 rounded-full"
-                      src="../../public/kisspng-portable-network-graphics-computer-icons-scalable-font-user-svg-png-icon-free-download-415641-5c46e5fbb8ce26.323350571548150267757.png"
+                      src="./../../public/Default-Profile-Picture-PNG-Free-Download.png"
                       alt=""
                     />
                   </MenuButton>

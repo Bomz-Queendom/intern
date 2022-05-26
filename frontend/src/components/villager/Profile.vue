@@ -2,12 +2,22 @@
   <div>
     <main>
       <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-        <div class="px-4 py-5 sm:px-6">
+        <div class="px-4 py-5 sm:px-6 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
           <h3 class="text-lg leading-8 font-medium text-gray-900">
             My Profile.
           </h3>
+          <p></p>
+          <p></p>
+          <router-link
+            type="button"
+            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+            :to="{ 'name' : 'EditProfile'}"
+          >
+            Edit
+          </router-link>
           <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details.</p>
         </div>
+        <br />
         <div class="border-t border-gray-200">
           <dl>
             <div
@@ -126,4 +136,6 @@ axiosClient
     state.user = data;
     state.address = data.address;
   });
+
+
 </script>

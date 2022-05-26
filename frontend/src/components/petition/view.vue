@@ -44,10 +44,18 @@
             {{ state.petition.createdAt }}
           </dd>
         </div>
-                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">Update At</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             {{ state.petition.updatedAt }}
+          </dd>
+        </div>
+        <div
+          class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+        >
+          <dt class="text-sm font-medium text-gray-500">Image</dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            <img v-for="i in state.petition.images" :src="i"  alt="">
           </dd>
         </div>
       </dl>
@@ -69,6 +77,5 @@ const route = useRoute();
 
 axiosClient.get(`/petition/getOne/${route.params.id}`).then(({ data }) => {
   state.petition = data;
-  console.log(data);
 });
 </script>
