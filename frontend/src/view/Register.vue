@@ -53,7 +53,7 @@
                   type="password"
                   name="password"
                   id="password"
-                  autocomplete="current-password"
+                  autocomplete="new-password"
                   v-model="user.password"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
@@ -176,10 +176,12 @@
                   >Phone Number</label
                 >
                 <input
-                  type="text"
+                  type="tel"
                   name="phoneNum"
+                  maxlength="10"
                   id="phoneNum"
                   autocomplete=""
+                  pattern="[0][0-9]{2}[0-9]{3}[0-9]{4}"
                   v-model="user.phoneNum"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
@@ -193,6 +195,7 @@
                 >
                 <input
                   type="text"
+                  maxlength="13"
                   name="idCard"
                   id="idCard"
                   autocomplete=""
@@ -292,9 +295,11 @@
                 >
                 <input
                   type="text"
+                  maxlength="5"
                   name="postalCode"
                   id="postalCode"
                   autocomplete="postal-code"
+                  pattern="[0-9]*"
                   v-model="user.postalCode"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
@@ -342,11 +347,19 @@ const user = {
 
 const Register = (ev) => {
   ev.preventDefault();
-  store.dispatch("Register", user).then((res) => {
-    router.push({
-      name: "Dashboard",
+  if (
+    user.idCard.length < 13 ||
+    user.postalCode.length < 5 ||
+    user.phoneNum.length < 10
+  ) {
+    alert("Input Invalid.");
+  } else {
+    store.dispatch("Register", user).then((res) => {
+      router.push({
+        name: "Dashboard",
+      });
     });
-  });
+  }
 };
 </script>
 

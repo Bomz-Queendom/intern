@@ -10,10 +10,17 @@ const store = createStore({
   getters: {},
   actions: {
     Register({ commit }, user) {
-      return axiosClient.post("/auth/villagerSignUp", user).then(({ data }) => {
-        alert("Sign up successfuly.")
-        return data;
-      });
+      return axiosClient
+        .post("/auth/villagerSignUp", user)
+        .then(({ data }) => {
+          alert("Sign up successfuly.");
+          return data;
+        })
+        .catch((err) => {
+          alert(
+            "Sign up filled : Filled out incomplete or incorrect information."
+          );
+        });
     },
     Login({ commit }, user) {
       return axiosClient
@@ -25,9 +32,10 @@ const store = createStore({
           commit("Login", data);
           commit("setUser", data);
           return data;
-        }).catch(err => {
-          alert("Your email or password Invalid.")
         })
+        .catch((err) => {
+          alert("Your email or password Invalid.");
+        });
     },
   },
   mutations: {
