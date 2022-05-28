@@ -6,6 +6,9 @@
       - in: path
         name: id
         description: petition id
+      - in: formData
+        name: id
+        description: villager id
     responses:
       200:
         description: success

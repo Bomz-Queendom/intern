@@ -1,6 +1,7 @@
 const Villager = require("../models/villager");
 const logger = require("../lib/logger");
 const { validationResult } = require("express-validator");
+const { $where } = require("../models/villager");
 //const { addLoggerAction } = require("./logAgentActionFunc");
 
 exports.create = async (req, res) => {
@@ -126,23 +127,18 @@ exports.deleteOne = async (req, res) => {
       return res.status(400).json({ error: error.array() });
     }
     let petitionId = req.params.id;
-    let findData = await Villager.findOne({ "petitions.id": petitionId });
-    let obj = null;
-    findData.petitions.forEach((index) => {
-      if (index.id === petitionId) {
-        obj = index;
-      }
+    let villagerId = req.body.id;
+    let findData = await Villager.findById(villagerId).then((doc) => {
+      doc.petitions.forEach((index) => {
+        if (index.id == petitionId) {
+          doc.petitions.splice(index, 1);
+          doc.save();
+          return res
+            .status(200)
+            .json(`delete petition id ${index.id} success.`);
+        }
+      });
     });
-    
-    let data = await Villager.findOneAndUpdate(
-      { "petitions.id": petitionId },
-      {
-        $pull: {
-          petitions: obj,
-        },
-      }
-    );
-    return res.status(200).json(`delete petition id ${petitionId} success.`);
   } catch (error) {
     logger.error(error.massage);
     return res.status(400).json({ message: error.message });

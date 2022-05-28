@@ -108,9 +108,13 @@ axiosClient
 const Delete = (id) => {
   let indexOfArray = state.petitions.findIndex((i) => i._id == id);
   if (window.confirm("Do you really want to dalete.")) {
-    axiosClient.delete(`petition/delete/${id}`).then(() => {
-      state.petitions.splice(indexOfArray, 1);
-    });
+    axiosClient
+      .delete(`petition/delete/${id}`, {
+        data: { id: sessionStorage.getItem("USERID") },
+      })
+      .then(() => {
+        state.petitions.splice(indexOfArray, 1);
+      });
   }
 };
 </script>
